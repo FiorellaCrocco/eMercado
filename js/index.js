@@ -2,18 +2,86 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 /* document.addEventListener("DOMContentLoaded", function(e){
- */
 /* }); */
 
-/* function login() {
-    document.getElementById("ingresar").innerHTML = 'bottom';
-    setTimeout(()=> location.href="https://fiorellacrocco.github.io/eMercado/home",2200);
-} */
+/*
+const userName = document.getElementById('username');
+const userPassword = document.getElementById('password');
+const buttonButton = document.getElementById('submit');
 
-{/* <a href="#" id="texto_mar_movil" onmouseover="mouseOverMar_movil()"><img title="Mar" src="css/images/mar_text_white.png"/></a> */}
+buttonButton.addEventListener('click', evento =>{
+    evento.preventDefault();
 
-function clearHeaderLocation(url) {
+    let user = userName.value;
+    let password = userPassword.value;
+
+    if (userName.length >= 6 && userName.length <= 8 && userPassword.length >= 6 && userPassword.length <= 8) {
+        alert('Bienvenido!');
+        
+
+        location.href = 'home.html'
+    }else{
+        alert('El usuario y la contraseña deben estar entre 6 y 8 caracteres de largo');
+        DocumentTimeline.getElementById('loguearse');
+    }
+    
+})
+*/
+const user = document.getElementById("username");
+const password = document.getElementById("pwd"); 
+
+/*function validar(){
+      /* problema con las condiciones */ 
+      /* if(usuario.length>6 && usuario.length<8){
+        window.location.href = "home.html"; 
+     } else { 
+        
+      alert('El usuario y la cotraseña deben tener entre 6 y 8 caracteres de largo'); }*/
+      /*let user = document.getElementById('username').value;
+      let password = document.getElementById('pwd').value;
+      
+      if(user.length >= 6 && user.length <= 8 && password.length >= 6 && password.length <= 8){
+        alert('Acceso correcto!');
+
+        clearHeaderLocation('/home.html');
+    }else{
+        alert('Usuario y contraseña deben estar entre 6 y 8 caracteres de largo');
+    }
+    } */ 
+/*
+const userName = document.getElementById('username');
+const userPassword = document.getElementById('password');
+const buttonButton = document.getElementById('button');
+
+buttonButton.addEventListener('click', evento =>{
+    evento.preventDefault();
+
+    let user = userName.value;
+    let password = userPassword.value;
+    
+    if(user.length >= 6 && user.length <= 8 && password.length >= 6 && password.length <= 8){
+        alert('Acceso correcto!');
+
+        clearHeaderLocation('/home.html');
+    }else{
+        alert('Usuario y contraseña deben estar entre 6 y 8 caracteres de largo');
+    }
+});
+*/
+
+/*
+function clearHeaderLocation(url){
     window.location.href = url;
-}
+}*/
 
-{/* <i class="fas fa-sign-in-alt"></i> */}
+function enviar(){
+    let usuario = document.getElementById("username").value;
+    let contraseña = document.getElementById("password").value
+
+    if(usuario === "" || contraseña === "" || (usuario === "" && contraseña === "") ){
+        alert("Debe completar todos los campos para poder continuar");
+        document.getElementById('formulario-login');
+    }else{
+        window.location.href = "home.html";
+    }
+}
