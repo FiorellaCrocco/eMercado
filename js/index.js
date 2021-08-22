@@ -3,7 +3,7 @@
 //elementos HTML presentes.
 /* document.addEventListener("DOMContentLoaded", function(e){
  */
-});
+/* }); */
 
 /* function login() {
     document.getElementById("ingresar").innerHTML = 'bottom';
@@ -12,6 +12,8 @@
 
 {/* <a href="#" id="texto_mar_movil" onmouseover="mouseOverMar_movil()"><img title="Mar" src="css/images/mar_text_white.png"/></a> */}
 
-function login() {
-    window.location.href="https://fiorellacrocco.github.io/eMercado/home";
-  }
+function clearHeaderLocation(url) {
+    window.location.href = url;
+}
+
+{/* <i class="fas fa-sign-in-alt"></i> */}
