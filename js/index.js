@@ -78,7 +78,7 @@ function enviar(){
     let usuario = document.getElementById("username").value;
     let contraseña = document.getElementById("password").value
 
-    if((usuario === "" || contraseña === "" || (usuario === "" && contraseña === "")) || usuario.length < 6 || usuario.length > 8){
+    if((usuario === "" || contraseña === "" || (usuario === "" && contraseña === "")) || usuario.length < 6 || usuario.length > 8 || contraseña.length < 6 || contraseña.length > 8){
         alert("Verifique que los datos hayan sido ingresados correctamente");
         document.getElementById('formulario-login');
     }else{
