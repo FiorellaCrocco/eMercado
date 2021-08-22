@@ -13,5 +13,5 @@
 {/* <a href="#" id="texto_mar_movil" onmouseover="mouseOverMar_movil()"><img title="Mar" src="css/images/mar_text_white.png"/></a> */}
 
 function login() {
-    window.location.href="http://www.pakainfo.com";
+    window.location.href="https://fiorellacrocco.github.io/eMercado/home";
   }
