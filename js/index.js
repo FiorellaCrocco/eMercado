@@ -5,3 +5,9 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 });
 
+function login() {
+    document.getElementById("ingresar").innerHTML = 'bottom';
+    setTimeout(()=> location.href="https://fiorellacrocco.github.io/eMercado/home",2200);
+}
+
+{/* <a href="#" id="texto_mar_movil" onmouseover="mouseOverMar_movil()"><img title="Mar" src="css/images/mar_text_white.png"/></a> */}
