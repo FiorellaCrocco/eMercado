@@ -3,6 +3,11 @@ body{
   background-size: cover;
 }
 
+p {
+  color: rgb(216, 5, 5);
+  font-size: 10px;
+}
+
 .main-section{
   margin:0 auto;
   margin-top: 50%;
@@ -35,6 +40,10 @@ body{
   border:0;
   padding-left: 54px; /*Para dejar un espacio a la izquierda, donde colocar íconos */
   border-radius: 5px;
+}
+
+.form-group p{
+  padding-top: 6px; /*Para dejar un espacio arriba */
 }
 
 /*Para mostrar los iconos corecctamente y ajustarlo al formulario */

@@ -27,8 +27,8 @@ buttonButton.addEventListener('click', evento =>{
     
 })
 */
-const user = document.getElementById("username");
-const password = document.getElementById("pwd"); 
+/* const user = document.getElementById("username");
+const password = document.getElementById("pwd");  */
 
 /*function validar(){
       /* problema con las condiciones */ 
@@ -78,8 +78,8 @@ function enviar(){
     let usuario = document.getElementById("username").value;
     let contraseña = document.getElementById("password").value
 
-    if(usuario === "" || contraseña === "" || (usuario === "" && contraseña === "") ){
-        alert("Debe completar todos los campos para poder continuar");
+    if((usuario === "" || contraseña === "" || (usuario === "" && contraseña === "")) || (usuario.length < 6)){
+        alert("Verifique que los datos hayan sido ingresados correctamente");
         document.getElementById('formulario-login');
     }else{
         window.location.href = "home.html";
