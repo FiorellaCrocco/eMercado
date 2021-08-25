@@ -20,6 +20,7 @@ function sortProducts(criteria, array) {
             if (a.cost > b.cost) { return 1; }
             return 0;
         }); 
+        /* Revisar el filtrado por relevancia que no*/
     }else if (criteria === ORDER_BY_PROD_COUNT){
         result = array.sort(function(a, b) {
             let aCount = parseInt(a.soldCount);
@@ -27,7 +28,7 @@ function sortProducts(criteria, array) {
 
             if ( aCount > bCount ){ return -1; }
             if ( aCount < bCount ){ return 1; }
-            return 0;
+            return 0; 
         });
     }
 
@@ -95,6 +96,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     document.getElementById("sortDesc").addEventListener("click", function () {
         sortAndShowProducts(ORDER_DESC_BY_PRICE);
+    });
+
+    document.getElementById("sortByCount").addEventListener("click", function(){
+        sortAndShowProducts(ORDER_BY_PROD_COUNT);
     });
 
     document.getElementById("clearRangeFilter").addEventListener("click", function () {
