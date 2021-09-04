@@ -12,7 +12,7 @@
   margin-bottom: 0;
   background-color: #53C0FB;
   background: url('../img/cover_back.png');
-  background-size: cover;
+  background-size: 100% auto;
   background-position: center;
   background-repeat: no-repeat;
   color: black;
@@ -23,6 +23,7 @@
   .jumbotron {
     padding-top: 6rem;
     padding-bottom: 6rem;
+    background-color: #F8F9FA;
   }
 }
 
@@ -36,7 +37,7 @@
 
 .jumbotron .container {
   max-width: 40rem;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #F8F9FA;
   border-radius: 10px;
   text-shadow: 1px 1px 2px grey;
 }
@@ -140,3 +141,11 @@ a.custom-card:hover {
   color: orange;
 }
 
+#usernav {
+  background-color: darkgray;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: solid 1px;
+  border-radius: 2px;
+}

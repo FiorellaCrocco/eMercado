@@ -45,3 +45,22 @@ var getJSONData = function(url){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 });
+
+
+// PROBANDO
+const usernav = document.getElementById('usernav');
+//const close = document.getElementById('close');
+
+let username = JSON.parse(localStorage.getItem('user'));
+
+if(username != null){
+    usernav.innerHTML=' <a href="#" id="userneme">'+username+'</a>';
+} 
+//else{
+//    usernav.innerHTML=' <a href="index.html" id="close" class="nav-item nav-link active">Iniciar sesión</a>';
+//}
+//document.addEventListener('click',function(){
+//    localStorage.clear('user');
+ //   location.href='index.html';
+//});
+console.log(username);
