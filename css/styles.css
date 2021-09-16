@@ -149,3 +149,11 @@ a.custom-card:hover {
   border: solid 1px;
   border-radius: 2px;
 }
+
+.divComentario{
+  background-color: aliceblue;
+}
+
+#card{
+  box-shadow: 0px 0px 5px grey;
+}
