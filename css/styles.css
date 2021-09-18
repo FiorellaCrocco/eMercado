@@ -137,10 +137,6 @@ a.custom-card:hover {
   text-decoration: inherit;
 }
 
-.checked {
-  color: orange;
-}
-
 #usernav {
   background-color: darkgray;
   float: left;
@@ -150,10 +146,17 @@ a.custom-card:hover {
   border-radius: 2px;
 }
 
+/* Estilo de las estrellas pintadas de los comentarios*/
+.checked {
+  color: orange;
+}
+
+/* Estilo para mostrar los comentarios del product-info.html*/
 .divComentario{
   background-color: aliceblue;
 }
 
+/* Estilo para mostrar los comentarios del product-info.js*/
 #card{
   box-shadow: 0px 0px 5px grey;
 }
