@@ -60,6 +60,7 @@ function mostrarComentarios() {
                             </p>
                             </div>
                         `;
+
             }
             document.getElementById('divComentario').innerHTML = htmlContentToAppend;
         }
@@ -67,14 +68,14 @@ function mostrarComentarios() {
     });
 }
 
-function stars(numero){
+function stars(numero) {
     let number = parseInt(numero);
     let html = "";
 
-    for(let i=1; i<=number;i++){
-        html +=`<span class="fa fa-star checked"></span>`
-    } for(let j=number+1;j<=5;j++){
-        html+=`<span class="fa fa-star"></span> `
+    for (let i = 1; i <= number; i++) {
+        html += `<span class="fa fa-star checked"></span>`
+    } for (let j = number + 1; j <= 5; j++) {
+        html += `<span class="fa fa-star"></span> `
     }
     return html;
 }
@@ -89,3 +90,25 @@ document.addEventListener("DOMContentLoaded", function (e) { /* Funcion para mos
     cargarProducto();
     mostrarComentarios();
 });
+
+//Grupal
+document.getElementById("submmit").addEventListener("click", function () {
+    let htmltoappend = "";
+    let texto = document.getElementById("text-area").value;
+    let puntaje = document.getElementById("input").value;
+    let date = new Date();
+    var fecha = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' | ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+
+    /* let username = JSON.parse(localStorage.getItem('user')); */
+
+    console.log(date);
+
+    htmltoappend = `<div class="card mb-4 p-3">
+    <div class="col-2 "></div>
+        <p> <b>Fiorella</b> | ${fecha} | ${stars(puntaje)}</p>
+        <p>${texto}</p>
+    </div>`;
+
+    document.getElementById("card1").innerHTML += htmltoappend;
+
+})
