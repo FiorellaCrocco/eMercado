@@ -103,7 +103,7 @@ document.getElementById("submmit").addEventListener("click", function () {
 
     console.log(date);
 
-    htmltoappend = `<div class="card mb-4 p-3">
+    htmltoappend = `<div class="card mb-4 p-3" id=card1>
     <div class="col-2 "></div>
         <p> <b>Fiorella</b> | ${fecha} | ${stars(puntaje)}</p>
         <p>${texto}</p>
