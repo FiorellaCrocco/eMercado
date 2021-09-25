@@ -20,9 +20,22 @@
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <a class="py-2 d-none d-md-inline-block" href="my-profile.html" id="usernav"></a>
-        <!--<button class="py-2 d-none d-md-inline-block" type="button">Cerrar sesión</button>-->
+        <!--         <a class="py-2 d-none d-md-inline-block" href="my-profile.html" ></a>
+        -->       
+        <!-- CODE PRUEBA       -->
+        <div class="dropdown">
+          <a class="btn btn-info dropdown-toggle" href="#" id="usernav" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            User
+          </a>
+          
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+            <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+            <a class="dropdown-item" href="index.html" onclick="localStorage.removeItem('user');">Cerrar Sesión</a>
+          </div>
+        </div>
+        <!-- CODE PRUEBA       -->
+
       </div>
     </nav>
     <main role="main">
@@ -90,7 +103,7 @@
             </div>
           </div>
           <div class="row">
-              <a type="button" class="btn btn-light btn-lg btn-block" href="categories.html">Ver todas</a>
+              <a type="button" class="btn btn-info btn-lg btn-block" href="categories.html">Ver todas</a>
           </div>
         </div>
       </div>
