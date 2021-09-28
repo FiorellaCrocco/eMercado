@@ -15,7 +15,6 @@ function showImagesGallery(array) {
         </div>
         `
 
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
 
@@ -80,6 +79,44 @@ function stars(numero) {
     return html;
 }
 
+let relacionados = [];
+//Mostrar los relatedProducts en las cards
+function relatedProducts() {
+    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            relacionados = resultObj.data;
+            productRelated = relacionados.relatedProducts; //indices
+            console.log(productRelated);
+            let htmlContentToAppend = ``;
+            getJSONData(PRODUCTS_URL).then(function (resultObjs) {
+                if (resultObjs.status === "ok") {
+                   
+                    prod = resultObjs.data; //productos
+                    console.log(prod);
+                   let producto = prod.name
+                    console.log(producto);
+                    for (let indice of productRelated) {
+                        console.log(prod[indice]);
+                        htmlContentToAppend += `
+                        <div class="card w-45 justify-content col-2>
+                        <div class="card col-sm-5 pb-3">
+                        <img class="card-img-top" src="${prod[indice].imgSrc}" alt="Card image cap">                           
+                            <div class="card-body d-flex flex-column text-center pt-6">                             
+                                <h2 class="card-title">${prod[indice].name}</h2>
+                                <p class="card-text text-justify">${prod[indice].description}</p>
+                                <a href="#" class="btn btn-outline-info mt-auto">Ver producto</a>
+                            </div>                        
+                        </div>
+                      </div>
+                     
+                            `;
+                        }
+                        document.getElementById("prod-list-container1").innerHTML = htmlContentToAppend;
+                    }                                                  
+                });
+            };
+        });
+    }
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -89,6 +126,7 @@ function stars(numero) {
 document.addEventListener("DOMContentLoaded", function (e) { /* Funcion para mostrar la información del json PRODUCT_INFO_URL */
     cargarProducto();
     mostrarComentarios();
+    relatedProducts();
 });
 
 //Grupal

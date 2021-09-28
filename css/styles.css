@@ -156,10 +156,18 @@ a.custom-card:hover {
 }
 
 /* Estilo para mostrar los comentarios del product-info.js*/
-#card{
+#card #card1 #tarjeta1 #tarjeta2{
   box-shadow: 0px 0px 5px grey;
 }
 
 #card1{
+  box-shadow: 0px 0px 5px grey;
+}
+
+#tarjeta1{
+  box-shadow: 0px 0px 5px grey;
+}
+
+#tarjeta2{
   box-shadow: 0px 0px 5px grey;
 }

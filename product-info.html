@@ -24,10 +24,11 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <a class="btn btn-info dropdown-toggle" href="#" id="usernav" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="btn btn-info dropdown-toggle" href="#" id="usernav" role="button" id="dropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           User
         </a>
-        
+
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="cart.html">Mi Carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
@@ -105,17 +106,26 @@
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text" >Puntaje: 1 - 5</span>
+              <span class="input-group-text">Puntaje: 1 - 5</span>
             </div>
-            <input type="text" class="form-control" id="input" aria-label="Sizing example input" aria-describedby="input">
+            <input type="text" class="form-control" id="input" aria-label="Sizing example input"
+              aria-describedby="input">
           </div>
           <button id="submmit" class="btn btn-info btn-lg btn-block">Enviar</button>
         </div>
 
-        <div id="card1" ></div>
+        <div id="card1"></div>
         <div id="divComentario"></div>
-        <a type="button" class="btn btn-info btn-lg btn-block" href="products.html">Volver a productos</a>
 
+        <dt class="pb-3 text-center"><h2>Productos Relacionados</h2></dt>
+        <div class="row">
+          <div class="container-fluid d-flex p-3" id="prod-list-container1">
+          </div>
+      </div> 
+       
+      <a type="button" class="btn btn-info btn-lg btn-block" href="products.html">Volver a productos</a>
+
+      </dl>
     </div>
   </main>
 
@@ -140,6 +150,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="js/products.js"></script>
 </body>
 
 </html>
