@@ -72,7 +72,9 @@ function stars(numero) {
     let html = "";
 
     for (let i = 1; i <= number; i++) {
-        html += `<span class="fa fa-star checked"></span>`
+        if (i <= 5){
+            html += `<span class="fa fa-star checked"></span>`
+        }
     } for (let j = number + 1; j <= 5; j++) {
         html += `<span class="fa fa-star"></span> `
     }
@@ -90,10 +92,10 @@ function relatedProducts() {
             let htmlContentToAppend = ``;
             getJSONData(PRODUCTS_URL).then(function (resultObjs) {
                 if (resultObjs.status === "ok") {
-                   
+
                     prod = resultObjs.data; //productos
                     console.log(prod);
-                   let producto = prod.name
+                    let producto = prod.name
                     console.log(producto);
                     for (let indice of productRelated) {
                         console.log(prod[indice]);
@@ -110,13 +112,13 @@ function relatedProducts() {
                       </div>
                      
                             `;
-                        }
-                        document.getElementById("prod-list-container1").innerHTML = htmlContentToAppend;
-                    }                                                  
-                });
-            };
-        });
-    }
+                    }
+                    document.getElementById("prod-list-container1").innerHTML = htmlContentToAppend;
+                }
+            });
+        };
+    });
+}
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -143,7 +145,7 @@ document.getElementById("submmit").addEventListener("click", function () {
 
     htmltoappend = `<div class="card mb-4 p-3" id=card1>
     <div class="col-2 "></div>
-        <p> <b>Fiorella</b> | ${fecha} | ${stars(puntaje)}</p>
+        <p> <b>${username}</b> | ${fecha} | ${stars(puntaje)}</p>
         <p>${texto}</p>
     </div>`;
 
