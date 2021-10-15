@@ -41,10 +41,11 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <a class="btn btn-info dropdown-toggle" href="#" id="usernav" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="btn btn-info dropdown-toggle" href="#" id="usernav" role="button" id="dropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           User
         </a>
-        
+
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="cart.html">Mi Carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
@@ -53,22 +54,87 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+  <main role="main">
+    <div class="container mt-5">
+      <h2 class="text-center p-4">Descripción del producto</h2>
+      <p class="lead pl-3 font-weight-bold">Artículos a Comprar</p>
+      <div class="container py-4">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="carrito">
+
+
+          </tbody>
+        </table>
+        <div>
+          <p class="lead font-weight-bold">Datos de Envío</p>
+
+          <form class="mx-3">
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="inputAddress2" >País</label>
+                <input type="text" class="form-control" id="pais" requiered>
+              </div>
+              <br>
+
+              <div class="form-group col-md-6">
+                <label for="inputCity">Calle</label>
+                <input type="text" class="form-control" id="calle" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">N°</label>
+                <input type="text" class="form-control" id="num" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputCity">Esquina</label>
+                <input type="text" class="form-control" id="esq" required>
+              </div>
+
+          </form>
+        </div>
+
+        <div>
+          <p class="lead font-weight-bold">Tipo de Envío</p>
+          <div id="imput" class="pl-2">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+                checked>
+              <label class="form-check-label" for="exampleRadios1">
+                Premium 2 a 5 días (15%)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+              <label class="form-check-label" for="exampleRadios2">
+                Express 5 a 8 días (7%)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+              <label class="form-check-label" for="exampleRadios3">
+                Standard 12 a 15 días (5%)
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <a type="button" id="comprar" class="btn btn-info btn-lg text-light btn-block mt-3">Comprar!</a>
+
+        <div id="mod"></div>
+
+      </div>
     </div>
-  </div>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
+  </main>
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
