@@ -1,24 +1,39 @@
 let productosCarrito = [];
 
+const USD_valor = 40;
+const articulos = productosCarrito.unitCost
+
+
+
 /*completa la función para actualizar el subtotal del producto al modificar la cantidad del mismo*/
-function updateProductoSubtotal() {
-    getCarrito(CART_INFO_URL)
+ function updateProductoSubtotal() {
+    getCarrito(CART)
         .then(respuesta => {
             productosCarrito = respuesta.articles;
-            for (let i = 0; i < productosCarrito.length; i++) {
+             for (let i = 0; i < productosCarrito.length; i++) { 
                 let cantidad = document.getElementById(`cantidad${i}`).value;
-                let costo = productosCarrito[i].unitCost;
+               /*  let cantidad1 = document.getElementById(`cantidad${1}`).value; */
 
-                let subtotal = cantidad * costo;
-                console.log(subtotal);
-                document.getElementById(`subtotaldinamico${i}`).innerText = subtotal;
-            }
+                
+               /*  let sub =  (productosCarrito[0].unitCost/USD_valor) * cantidad; */
+                let usd = (productosCarrito[i].unitCost) * cantidad ;
+                
+                if(productosCarrito[i].currency=="UYU"){
+                    usd= usd / USD_valor;
+                }
+                
+               /*  document.getElementById(`subtotaldinamico${0}`).innerText = sub; */
+                document.getElementById(`subtotaldinamico${i}`).innerText = usd;
+               
+
+            } 
 
             update();
 
         })
 
-}
+} 
+
 
 function update() {
     let suma = 0;
@@ -28,7 +43,7 @@ function update() {
 
     }
 
-    document.getElementById("totalproductos").innerText = "UYU " + suma;
+    document.getElementById("totalproductos").innerText = "USD " + suma;
 }
 
 
@@ -38,17 +53,28 @@ function showCarrito() {
     /*mostrar los productos del carrito con el input correspondiente a la cantidad*/
     let htmlToAppend = "";
     let i = 0;
+   
+
     for (let article of productosCarrito) {
+
+        let articles = article.currency == "UYU" ? article.unitCost/USD_valor +" USD": article.unitCost +" USD";
+        let sub = 0; 
+        let usd = article.currency == "USD" ? article.unitCost: sub;
+             
+
+        if (article.currency == "UYU"){
+           sub += (article.unitCost/USD_valor) * article.count;    
+        }
+         
 
         htmlToAppend += `
         <tr>
         <td><img src="${article.src}" class = "img-fluid" style ="max-width:50px!important"></td>
         <td class="align-middle">${article.name}</td>
-        <td class="align-middle">${article.currency} ${article.unitCost}</td>
+        <td class="align-middle">${articles} </td>
         <td class="align-middle"><input id="cantidad${i}" type="number" min ="1" value=${article.count} onChange="updateProductoSubtotal()"></td>
-        <td class="align-middle" id="subtotaldinamico${i}">${article.unitCost * article.count}</td>
+        <td class="align-middle" id="subtotaldinamico${i}">${sub + usd}</td>
         </tr>`;
-
         i++;
     }
     htmlToAppend += `
@@ -59,7 +85,6 @@ function showCarrito() {
         <td class="align-middle"></td>
         <td class="align-middle font-weight-bold" id="totalproductos"></td>
         </tr>`;
-
 
     document.getElementById("carrito").innerHTML = htmlToAppend;
 }
@@ -75,6 +100,7 @@ function getCarrito(url) {
 
 }
 
+/* Simulacion del proceso de compra*/
 document.getElementById("comprar").addEventListener("click", function () {
     let htmlToAppend = "";
 
@@ -104,24 +130,13 @@ document.getElementById("comprar").addEventListener("click", function () {
 
         document.getElementById("mod").innerHTML = htmlToAppend;
     } 
-
-
-/*     htmlToAppend += `
-    <div class="alert alert-success" role="alert">
-        <h5 class="alert-heading">Estado de su compra..</h5>
-        <hr>
-        <p class="mb-0">Su compra fue realizada con éxito!</p>
-    </div>
-    `
-
-    document.getElementById("mod").innerHTML = htmlToAppend; */
 });
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-    getCarrito(CART_INFO_URL)
+    getCarrito(CART)
         .then(respuesta => {
             productosCarrito = respuesta.articles;
             showCarrito();
