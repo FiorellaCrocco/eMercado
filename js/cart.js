@@ -10,21 +10,16 @@ const articulos = productosCarrito.unitCost
     getCarrito(CART)
         .then(respuesta => {
             productosCarrito = respuesta.articles;
-             for (let i = 0; i < productosCarrito.length; i++) { 
+            for (let i = 0; i < productosCarrito.length; i++) { 
                 let cantidad = document.getElementById(`cantidad${i}`).value;
-               /*  let cantidad1 = document.getElementById(`cantidad${1}`).value; */
-
-                
-               /*  let sub =  (productosCarrito[0].unitCost/USD_valor) * cantidad; */
+               
                 let usd = (productosCarrito[i].unitCost) * cantidad ;
                 
                 if(productosCarrito[i].currency=="UYU"){
                     usd= usd / USD_valor;
                 }
-                
-               /*  document.getElementById(`subtotaldinamico${0}`).innerText = sub; */
-                document.getElementById(`subtotaldinamico${i}`).innerText = usd;
-               
+        
+                document.getElementById(`subtotaldinamico${i}`).innerText = usd;       
 
             } 
 
