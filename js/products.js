@@ -35,6 +35,7 @@ function sortProducts(criteria, array) {
     return result;
 }
 
+ 
 function showProductsList() {
 
     let htmlContentToAppend = "";
@@ -45,21 +46,18 @@ function showProductsList() {
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))) {
 
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ product.name + `</h4>
-                            <small class="text-muted">` + product.soldCount + ` vendidos</small>
-                        </div>
-                        <p class="mb-1">` + product.description + `</p>
-                        <p class="mb-1">` + product.cost + " " + product.currency + `</p>
-                    </div>
-                </div>
-            </a>
+            <div class="card col-md-6 col-sd-12 mb-2">
+               
+                    <img class="card-img-top" src="` + product.imgSrc + `" />
+                    <div class="card-body d-flex flex-column text-center pt-6">                             
+                        <h3 class="card-title">`+ product.name +`</h3>
+                        <p class="card-text text-justify"> `+ product.description +`</p>                                
+                        <p class="card-text text-justify">` + product.cost + " " + product.currency +" " + `<small class="card-text text-justify text-muted">` + product.soldCount + ` vendidos</small></p>
+                        
+                        <a href="product-info.html" class="btn btn-outline-info mt-auto">Ver producto</a>
+                    </div> 
+                
+            </div>
             `
         }
 
