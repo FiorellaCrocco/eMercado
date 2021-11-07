@@ -81,7 +81,7 @@
           <form class="mx-3">
             <div class="form-row">
               <div class="form-group col-md-12">
-                <label for="inputAddress2" >País</label>
+                <label for="inputAddress2">País</label>
                 <input type="text" class="form-control" id="pais" requiered>
               </div>
               <br>
@@ -102,27 +102,65 @@
           </form>
         </div>
 
-        <div>
+        <div class="col-md-12 mb-3">
           <p class="lead font-weight-bold">Tipo de Envío</p>
           <div id="imput" class="pl-2">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
-                checked>
-              <label class="form-check-label" for="exampleRadios1">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="premium" value="option1" checked>                
+              <label class="form-check-label" for="premium">
                 Premium 2 a 5 días (15%)
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-              <label class="form-check-label" for="exampleRadios2">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="espress" value="option2">
+              <label class="form-check-label" for="espress">
                 Express 5 a 8 días (7%)
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-              <label class="form-check-label" for="exampleRadios3">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="standard" value="option3" >
+              <label class="form-check-label" for="standard">
                 Standard 12 a 15 días (5%)
               </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+          Seleccione Forma de Pago
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="staticBackdropLabel">Forma de Pago</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div id="imput" class="pl-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pago" id="PagoEfectivo" value="option1" checked>
+                    <label class="form-check-label" for="PagoEfectivo">
+                      Efectivo
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pago" id="pagoTarjeta" value="option2">
+                    <label class="form-check-label" for="pagoTarjeta">
+                      Tarjeta
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Aceptar y cerrar</button>
+              </div>
             </div>
           </div>
         </div>
@@ -131,9 +169,8 @@
         <div id="mod"></div>
 
       </div>
-    </div>
   </main>
-  
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p class="float-right">
@@ -143,8 +180,15 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  
-  <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
 
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
