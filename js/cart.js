@@ -6,32 +6,32 @@ const articulos = productosCarrito.unitCost
 
 
 /*completa la función para actualizar el subtotal del producto al modificar la cantidad del mismo*/
- function updateProductoSubtotal() {
+function updateProductoSubtotal() {
     getCarrito(CART)
         .then(respuesta => {
             productosCarrito = respuesta.articles;
-            for (let i = 0; i < productosCarrito.length; i++) { 
+            for (let i = 0; i < productosCarrito.length; i++) {
                 let cantidad = document.getElementById(`cantidad${i}`).value;
-               
-                let usd = (productosCarrito[i].unitCost) * cantidad ;
-                
-                if(productosCarrito[i].currency=="UYU"){
-                    usd= usd / USD_valor;
-                }
-        
-                document.getElementById(`subtotaldinamico${i}`).innerText = usd;       
 
-            } 
+                let usd = (productosCarrito[i].unitCost) * cantidad;
+
+                if (productosCarrito[i].currency == "UYU") {
+                    usd = usd / USD_valor;
+                }
+
+                document.getElementById(`subtotaldinamico${i}`).innerText = usd;
+
+            }
 
             update();
 
         })
 
-} 
+}
 
+let suma = 0;
 
 function update() {
-    let suma = 0;
     for (let j = 0; j < productosCarrito.length; j++) {
 
         suma += parseInt(document.getElementById(`subtotaldinamico${j}`).innerText);
@@ -41,6 +41,14 @@ function update() {
     document.getElementById("totalproductos").innerText = "USD " + suma;
 }
 
+function calcularTotalCarrito(porcentaje) {
+    let total = parseInt(suma * porcentaje);
+    console.log(typeof suma);
+    console.log(typeof porcentaje);
+    /* console.log(typeof total); */
+    document.getElementById("totalCostText").innerHTML = total;
+
+}
 
 /*modificar la función showCarrito para que aparezca el subtotal del producto en base a la cantidad y precio unitario*/
 function showCarrito() {
@@ -48,19 +56,19 @@ function showCarrito() {
     /*mostrar los productos del carrito con el input correspondiente a la cantidad*/
     let htmlToAppend = "";
     let i = 0;
-   
+
 
     for (let article of productosCarrito) {
 
-        let articles = article.currency == "UYU" ? article.unitCost/USD_valor +" USD": article.unitCost +" USD";
-        let sub = 0; 
-        let usd = article.currency == "USD" ? article.unitCost: sub;
-             
+        let articles = article.currency == "UYU" ? article.unitCost / USD_valor + " USD" : article.unitCost + " USD";
+        let sub = 0;
+        let usd = article.currency == "USD" ? article.unitCost : sub;
 
-        if (article.currency == "UYU"){
-           sub += (article.unitCost/USD_valor) * article.count;    
+
+        if (article.currency == "UYU") {
+            sub += (article.unitCost / USD_valor) * article.count;
         }
-         
+
 
         htmlToAppend += `
         <tr>
@@ -95,6 +103,24 @@ function getCarrito(url) {
 
 }
 
+function tarjeta() {
+    let htmlToAppend = "";
+    console.log("tarjeta")
+
+    htmlToAppend += `
+        <form class="mx-3">
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <input type="text" class="form-control" id="tarjetaNumero" placeholder="Numero de tarjeta" requiered>
+              </div>
+            </div>
+        </form>
+        `
+    document.getElementById("tarjeta").innerHTML = htmlToAppend;
+
+}
+
+
 /* Simulacion del proceso de compra*/
 document.getElementById("comprar").addEventListener("click", function () {
     let htmlToAppend = "";
@@ -104,7 +130,7 @@ document.getElementById("comprar").addEventListener("click", function () {
     let num = document.getElementById("num").value;
     let esq = document.getElementById("esq").value;
 
-    if(pais === "" || calle === "" || num === "" || esq === ""){
+    if (pais === "" || calle === "" || num === "" || esq === "") {
         htmlToAppend += `
         <div class="alert alert-danger" role="alert">
             <h5 class="alert-heading">Estado de su compra..</h5>
@@ -124,7 +150,7 @@ document.getElementById("comprar").addEventListener("click", function () {
         `
 
         document.getElementById("mod").innerHTML = htmlToAppend;
-    } 
+    }
 });
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
