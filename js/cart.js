@@ -45,7 +45,7 @@ function calcularTotalCarrito(porcentaje) {
     let total = parseInt(suma * porcentaje);
     console.log(typeof suma);
     console.log(typeof porcentaje);
-    /* console.log(typeof total); */
+    
     document.getElementById("totalCostText").innerHTML = total;
 
 }
@@ -111,7 +111,7 @@ function tarjeta() {
         <form class="mx-3">
             <div class="form-row">
               <div class="form-group col-md-12">
-                <input type="text" class="form-control" id="tarjetaNumero" placeholder="Numero de tarjeta" requiered>
+                <input type="text" class="form-control" id="tarjetaNumero" placeholder="Numero de tarjeta">
               </div>
             </div>
         </form>
