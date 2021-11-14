@@ -29,9 +29,9 @@ function updateProductoSubtotal() {
 
 }
 
-let suma = 0;
 
 function update() {
+    let suma = 0;
     for (let j = 0; j < productosCarrito.length; j++) {
 
         suma += parseInt(document.getElementById(`subtotaldinamico${j}`).innerText);
@@ -41,11 +41,26 @@ function update() {
     document.getElementById("totalproductos").innerText = "USD " + suma;
 }
 
+
+
+
 function calcularTotalCarrito(porcentaje) {
-    let total = parseInt(suma * porcentaje);
-    console.log(typeof suma);
-    console.log(typeof porcentaje);
-    
+    let sum = 0;
+    let total_porcentaje = 0;
+    let total = 0;
+
+    for (let f = 0; f < productosCarrito.length; f++) {
+
+        sum += parseInt(document.getElementById(`subtotaldinamico${f}`).innerText);
+        total_porcentaje += parseInt(sum * porcentaje);
+        total += parseInt(sum + total_porcentaje);
+
+    }
+    console.log("sum " + sum);
+    console.log("porcentaje " + porcentaje);
+    console.log("total del porcentaje " + total_porcentaje);
+    console.log("total final " + total);
+
     document.getElementById("totalCostText").innerHTML = total;
 
 }
@@ -120,6 +135,15 @@ function tarjeta() {
 
 }
 
+function validar() {
+    test = document.getElementById("tarjetaNumero").value;
+    
+    if (test == "") {
+        alert("Debe ingresar el número de tarjeta");
+    } else {
+        alert("Los datos fueron guardados exitosamente")
+    }
+}
 
 /* Simulacion del proceso de compra*/
 document.getElementById("comprar").addEventListener("click", function () {
@@ -163,6 +187,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             showCarrito();
             console.log(productosCarrito);
             update()
+            calcularTotalCarrito();
         })
 });
 
